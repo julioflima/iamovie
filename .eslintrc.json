@@ -21,6 +21,9 @@
       }
     }
   ],
+  "globals": {
+    "JSX": true
+  },
   "rules": {
     "jsx-a11y/label-has-for": 0,
     "jsx-a11y/label-has-associated-control": "off",

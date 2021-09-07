@@ -8,22 +8,13 @@ declare module 'axios' {
 export default abstract class ApiService {
   protected readonly api: AxiosInstance;
 
-  protected readonly isLocal: boolean;
-
-  protected readonly isTest: boolean;
-
-  public constructor(
-    headers: {} = {},
-    baseURL: string = 'https://cadastros-bbcorretora.bbs.desenv.bb.com.br'
-  ) {
+  public constructor(headers: {} = {}, baseURL: string = 'https://api.themoviedb.org') {
     this.api = axios.create({
       baseURL,
       headers
     });
 
     this.initializeResponseInterceptorApi();
-    this.isLocal = window.location.origin.includes('localhost');
-    this.isTest = this.isLocal && process.env.NODE_ENV === 'test';
   }
 
   private initializeResponseInterceptorApi(): void {

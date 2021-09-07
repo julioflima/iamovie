@@ -1,7 +1,8 @@
+/* eslint-disable import/prefer-default-export */
 export const theme = {
   colors: {
-    primary: { one: '#161A36', two: '#212040', three: '#242444' , four: '#556FE5' },
-    secondary: { one: '#FFEB39', two: '#FFDF39', three: '#FFC839', four:'#E1A766'},
+    primary: { one: '#161A36', two: '#212040', three: '#242444', four: '#556FE5' },
+    secondary: { one: '#FFEB39', two: '#FFDF39', three: '#FFC839', four: '#E1A766' },
     tertiary: {
       one: '#FF395D',
       two: '#FF398C',
@@ -11,6 +12,6 @@ export const theme = {
       one: '#ffffff',
       two: '#636366',
       three: '#454B6B'
-    },
+    }
   }
 };

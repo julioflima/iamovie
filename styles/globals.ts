@@ -1,9 +1,8 @@
- import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
- export default createGlobalStyle`
+export default createGlobalStyle`
  :root {
      --font-sans-one: "Roboto", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", "Oxygen", Helvetica, "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-     --font-sans-two: "Open Sans", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", "Oxygen", Helvetica, "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
  }
  
  * {
@@ -18,8 +17,8 @@
  
    ::selection {
    color:  ${(props) => props.theme.colors.tertiary.two};
-   background: ${(props) => props.theme.colors.primary.one + 'a0'} linear-gradient(0deg, ${(props) =>
-   props.theme.colors.primary.one + 'a0'} 0%, ${(props) => props.theme.colors.primary.one + 'a0'} 100%);
+   background: ${(props) => `${props.theme.colors.primary.one}a0`} linear-gradient(0deg, ${(props) =>
+  `${props.theme.colors.primary.one}a0`} 0%, ${(props) => `${props.theme.colors.primary.one}a0`} 100%);
    }
  }
  
@@ -31,10 +30,10 @@
    overflow: hidden;
  
  
- background: radial-gradient(ellipse at bottom, ${(props) => props.theme.colors.sixnary.one}, ${(props) =>
-   props.theme.colors.primary.one}),
-             radial-gradient(ellipse at top, ${(props) => props.theme.colors.sixnary.one}, ${(props) =>
-   props.theme.colors.primary.one});
+ background: radial-gradient(ellipse at bottom, ${(props) => props.theme.colors.primary.one}, ${(props) =>
+  props.theme.colors.primary.one}),
+             radial-gradient(ellipse at top, ${(props) => props.theme.colors.primary.one}, ${(props) =>
+  props.theme.colors.primary.one});
  
    @media (max-width: 972px) {
      overflow: revert;
@@ -75,7 +74,7 @@
  
      ::-webkit-scrollbar-thumb {
        border-radius: 10px;
-       background-color: ${(props) => props.theme.colors.quaternary.seven};
+       background-color: ${(props) => props.theme.colors.quaternary.one};
        background-image: -webkit-gradient(
          linear,
          0 0,
@@ -91,10 +90,10 @@
      background: ${(props) => props.theme.colors.primary.one};
      overflow-y: hidden;
      min-height: 100%;
+     width: 100%;
      display: flex;
      flex: 1;
      position: absolute;
    }
  
  `;
- 
