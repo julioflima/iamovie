@@ -1,0 +1,34 @@
+name: 'Deploy Frontend on Heroku'
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  frontend-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Login to Heroku Container registry frontend
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:login
+
+      - name: Build docker image
+        working-directory: packages/frontend
+        run: sudo docker build -t ai-movie .
+
+      - name: Push container to docker registry heroku
+        working-directory: packages/frontend
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:push -a ai-movie web
+
+      - name: Release frontend in Heroku
+        working-directory: packages/frontend
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:release -a ai-movie web

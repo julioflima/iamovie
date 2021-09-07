@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 export interface IMovie {
   adult: boolean;
   backdrop_path: null | string;
