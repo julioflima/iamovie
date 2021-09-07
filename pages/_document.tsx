@@ -23,9 +23,6 @@ export default class MyDocument extends Document {
           </>
         )
       };
-
-
-      
     } finally {
       sheet.seal();
     }
@@ -35,7 +32,11 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta charSet="utf-8" />
+        <title>IA Movie</title>
+        <meta name="description" content="IA Movie" />
+        <link rel="icon" href="/favicon.svg" />
+
+        <meta charSet="utf-8" />
           <link rel="preload" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link rel="dns-prefetch" href="https://fonts.gstatic.com"></link>
