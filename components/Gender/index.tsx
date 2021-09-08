@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Option, Space } from './styles';
 
-const Gender: React.FC = () => {
+const Genrer: React.FC = () => {
   return (
     <Container>
       <Option>SUSPENSE</Option>
@@ -13,4 +13,4 @@ const Gender: React.FC = () => {
   );
 };
 
-export default Gender;
+export default Genrer;

@@ -1,6 +1,7 @@
 /* eslint-disable class-methods-use-this */
 
 import { IApi } from '../interfaces/IApi';
+import { IMovieComplete } from '../interfaces/IMovie';
 import ApiService from './ApiService';
 
 export default class FilmService extends ApiService {
@@ -39,6 +40,15 @@ export default class FilmService extends ApiService {
 
   public top(): Promise<IApi> {
     return this.api.get('/3/movie/top_rated', {
+      params: {
+        api_key: this.api_key,
+        language: this.language
+      }
+    });
+  }
+
+  public get(id: number): Promise<IMovieComplete> {
+    return this.api.get(`/3/movie/${id}`, {
       params: {
         api_key: this.api_key,
         language: this.language

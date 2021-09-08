@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import Button from '../Button';
-import Gender from '../Gender';
+import Gender from '../Genrer';
 import Search from '../Search';
 import {
   Container,
