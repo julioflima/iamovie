@@ -61,7 +61,7 @@ export const ContainerForm = styled.form<IContainerForm>`
     props.value &&
     css`
       & {
-        background: ${({ theme }) => theme.colors.primary.four};
+        background: ${({ theme }) => `${theme.colors.primary.two}80`};
       }
 
       & input {
@@ -108,4 +108,9 @@ export const Icone = styled(Search)`
   cursor: pointer;
   z-index: 1;
   margin: 0 0.5rem;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    fill: ${({ theme }) => theme.colors.secondary.two};
+  }
 `;

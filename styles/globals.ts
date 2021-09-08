@@ -16,10 +16,38 @@ export default createGlobalStyle`
  
  
    ::selection {
-   color:  ${(props) => props.theme.colors.tertiary.two};
+   color:  ${(props) => props.theme.colors.primary.four};
    background: ${(props) => `${props.theme.colors.primary.one}a0`} linear-gradient(0deg, ${(props) =>
   `${props.theme.colors.primary.one}a0`} 0%, ${(props) => `${props.theme.colors.primary.one}a0`} 100%);
    }
+
+   ::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 1px;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: ${(props) => props.theme.colors.quaternary.one};
+    background-image: -webkit-gradient(
+      linear,
+      0 0,
+      0 100%,
+      color-stop(0.5, transparent),
+      color-stop(0.5, transparent),
+      to(transparent)
+    ) !important;
+  }
  }
  
  
@@ -56,44 +84,19 @@ export default createGlobalStyle`
    min-height: 100%;
  }
  
- @media screen and (min-width: 768px) {
-     ::-webkit-scrollbar-track {
-       background-color: transparent;
-       border-radius: 1px;
-     }
- 
-     ::-webkit-scrollbar-corner {
-       background-color: transparent;
-     }
- 
-     ::-webkit-scrollbar {
-       width: 5px;
-       height: 5px;
-       background-color: transparent;
-     }
- 
-     ::-webkit-scrollbar-thumb {
-       border-radius: 10px;
-       background-color: ${(props) => props.theme.colors.quaternary.one};
-       background-image: -webkit-gradient(
-         linear,
-         0 0,
-         0 100%,
-         color-stop(0.5, transparent),
-         color-stop(0.5, transparent),
-         to(transparent)
-       ) !important;
-     }
-   }
+  
  
    #__next{
      background: ${(props) => props.theme.colors.primary.one};
-     overflow-y: hidden;
      min-height: 100%;
      width: 100%;
      display: flex;
      flex: 1;
+     flex-wrap: wrap;
      position: absolute;
+     flex-direction: column;
+     overflow-y: scroll;
+     overflow-x: hidden;
    }
  
  `;

@@ -1,12 +1,33 @@
-import type { NextPage } from 'next';
-import Header from '../components/Header';
+import { GetStaticProps } from 'next';
+import React, { memo } from 'react';
+import List from '../components/List';
+import ListHeader from '../components/ListHeader';
+import { IApi } from '../interfaces/IApi';
+import FilmService from '../services/FilmService';
 
-const Home: NextPage = () => {
+const Home: React.FC<{ top: IApi; popular: IApi }> = ({ top, popular }) => {
   return (
-    <>
-      <Header />
-    </>
+    <div>
+      {true && <ListHeader films={top.results} />}
+      {true && <List films={popular.results} />}
+    </div>
   );
 };
 
-export default Home;
+export const getStaticProps: GetStaticProps = async () => {
+  const fs = new FilmService();
+  const popular = await fs.popular();
+  const top = await fs.top();
+
+  const oneDayInSeconds = 60 * 60 * 24;
+
+  return {
+    props: {
+      top,
+      popular
+    },
+    revalidate: oneDayInSeconds
+  };
+};
+
+export default memo(Home);

@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import Button from '../Button';
 import Search from '../Search';
 import { Container, IconFavoriteContainer, IconsContainer, LogoContainer } from './styles';
 
-const Header: React.FC<{ favorite: boolean }> = ({ favorite }) => {
+const Header: React.FC = () => {
   return (
     <Container>
       <Link href="/">
@@ -16,8 +17,9 @@ const Header: React.FC<{ favorite: boolean }> = ({ favorite }) => {
         </a>
       </Link>
       <IconsContainer>
-        <IconFavoriteContainer favorite={favorite || true} />
         <Search searchIt={() => {}} />
+        <IconFavoriteContainer favorite />
+        <Button>Enter</Button>
       </IconsContainer>
     </Container>
   );
