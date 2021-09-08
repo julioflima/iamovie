@@ -2,26 +2,38 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import Button from '../Button';
+import Gender from '../Gender';
 import Search from '../Search';
-import { Container, IconFavoriteContainer, IconsContainer, LogoContainer } from './styles';
+import {
+  Container,
+  ContainerFixed,
+  ContainerLinks,
+  IconFavoriteContainer,
+  IconsContainer,
+  LogoContainer
+} from './styles';
 
 const Header: React.FC = () => {
   return (
-    <Container>
-      <Link href="/">
-        <a>
-          <LogoContainer>
-            <Image src="/logo.svg" alt="logo" width={50} height={100} />
-            <Image src="/movie.svg" alt="logo" width={75} height={75} />
-          </LogoContainer>
-        </a>
-      </Link>
-      <IconsContainer>
-        <Search searchIt={() => {}} />
-        <IconFavoriteContainer favorite />
-        <Button>Enter</Button>
-      </IconsContainer>
-    </Container>
+    <ContainerFixed>
+      <Container>
+        <ContainerLinks>
+          <Link href="/">
+            <a>
+              <LogoContainer>
+                <Image src="/logo.svg" alt="logo" width={70} height={130} />
+              </LogoContainer>
+            </a>
+          </Link>
+          <Gender />
+        </ContainerLinks>
+        <IconsContainer>
+          <Search searchIt={() => {}} />
+          <IconFavoriteContainer favorite />
+          <Button>Sign In</Button>
+        </IconsContainer>
+      </Container>
+    </ContainerFixed>
   );
 };
 

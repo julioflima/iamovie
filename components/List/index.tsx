@@ -2,12 +2,14 @@ import Image from 'next/image';
 import React from 'react';
 import { IMovie } from '../../interfaces/IMovie';
 import {
+  Badge,
   Card,
   Container,
   ContainerCards,
-  ContainerHover,
-  ContentHover,
-  ContentHoverHeader,
+  ContainerOver,
+  ContentOver,
+  Footer,
+  Header,
   IconFavorite
 } from './styles';
 
@@ -25,15 +27,21 @@ const List: React.FC<{ films: IMovie[] }> = ({ films }) => {
               width={150}
               height={200}
             />
-            <ContainerHover>
-              <ContentHover>
-                <ContentHoverHeader>
+            <ContainerOver>
+              <ContentOver>
+                <Header>
                   <span>{film.original_title}</span>
-                  <IconFavorite />
-                </ContentHoverHeader>
-                <span>{new Date(film.release_date).getFullYear()}</span>
-              </ContentHover>
-            </ContainerHover>
+                  <span>
+                    <IconFavorite />
+                  </span>
+                </Header>
+                <Footer>
+                  <span>{new Date(film.release_date).getFullYear()}</span>
+                  <p />
+                  <Badge>{Number(film.vote_average).toFixed(1)}</Badge>
+                </Footer>
+              </ContentOver>
+            </ContainerOver>
           </Card>
         ))}
       </ContainerCards>
