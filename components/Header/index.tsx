@@ -1,14 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import Button from '../Button';
-import Gender from '../Gender';
-import Search from '../Search';
+import {Button,Favorite,Genrer,Search} from '../';
 import {
   Container,
   ContainerFixed,
   ContainerLinks,
-  IconFavoriteContainer,
   IconsContainer,
   LogoContainer
 } from './styles';
@@ -25,11 +22,11 @@ const Header: React.FC = () => {
               </LogoContainer>
             </a>
           </Link>
-          <Gender />
+          <Genrer />
         </ContainerLinks>
         <IconsContainer>
           <Search searchIt={() => {}} />
-          <IconFavoriteContainer favorite />
+          <Favorite />
           <Button>Sign In</Button>
         </IconsContainer>
       </Container>

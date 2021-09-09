@@ -1,24 +1,24 @@
-import { FavoriteBorder } from '@styled-icons/material';
 import styled from 'styled-components';
-import { IIconFavorite } from './IStyles';
+import { ICard, IContainer, IContainerCards } from './IStyles';
 
-export const Container = styled.div`
+export const Container = styled.div<IContainer>`
   width: 100%;
   height: auto;
-  position: absolute;
+  position: ${({ position }) => position};
   flex: 1;
   display: flex;
   flex-direction: column;
 `;
 
-export const ContainerCards = styled.div`
+export const ContainerCards = styled.div<IContainerCards>`
   display: grid;
-  gap: 0.5em;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
-  margin: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(${({ width }) => width}px, 2fr));
+  height: ${({ height }) => height}px;
+  overflow: ${({ overflow }) => overflow};
+  margin: ${({ margin }) => margin};
 `;
 
-export const Card = styled.div`
+export const Card = styled.div<ICard>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -28,19 +28,19 @@ export const Card = styled.div`
   & {
     span {
       display: none;
-      transition: all 0.4s ease-in-out;
+      transition: all ${({ transtionSpan }) => transtionSpan}s ease-in-out;
     }
   }
 
   & > div {
     width: 100% !important;
-    border-radius: 0.125rem;
+    border-radius: ${({ borderRadius }) => borderRadius};
   }
 
   &:hover {
     img {
-      opacity: 0.2;
-      transition: all 0.4s ease-in-out;
+      opacity: ${({ opacity }) => opacity};
+      transition: all ${({ transtionImage }) => transtionImage}s ease-in-out;
     }
 
     span {
@@ -74,13 +74,6 @@ export const Footer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-`;
-
-export const IconFavorite = styled(FavoriteBorder)<IIconFavorite>`
-  width: 1rem;
-  height: 1rem;
-  cursor: pointer;
-  fill: ${({ favorite, theme }) => (favorite ? theme.colors.tertiary.two : theme.colors.quaternary.one)};
 `;
 
 export const Badge = styled.p`

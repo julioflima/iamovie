@@ -1,38 +1,60 @@
 import Image from 'next/image';
 import React from 'react';
+import { Favorite } from '..';
 import { IMovie } from '../../interfaces/IMovie';
-import {
-  Badge,
-  Card,
-  Container,
-  ContainerCards,
-  ContainerOver,
-  ContentOver,
-  Footer,
-  Header,
-  IconFavorite
-} from './styles';
+import { shuffle } from '../../utils';
+import { Badge, Card, Container, ContainerCards, ContainerOver, ContentOver, Footer, Header } from './styles';
 
-const List: React.FC<{ films: IMovie[] }> = ({ films }) => {
+const List: React.FC<{ films?: IMovie[]; size?: 'big' | 'small' }> = ({ films = [], size = 'small' }) => {
+  const properties = {
+    small: {
+      title: true,
+      container: { position: 'absolute', absolute: true },
+      containerCards: { margin: '0.5rem', overflow: 'revert' },
+      card: { borderRadius: '0.125rem' },
+      span: { transition: 0.4 },
+      image: { size: 'w300', width: 150, height: 200, transition: 0.2, opacity: 0.6 }
+    },
+    big: {
+      title: false,
+      container: { position: 'revert', absolute: false },
+      containerCards: { margin: '0rem', overflow: 'hidden' },
+      card: { borderRadius: '0rem' },
+      span: { transition: 0.4 },
+      image: { size: 'original', width: 300, height: 500, transition: 0.2, opacity: 0.2 }
+    }
+  };
+
   return (
-    <Container>
-      <ContainerCards>
-        {films.map((film) => (
-          <Card key={film.id}>
+    <Container position={properties[size].container.position}>
+      <ContainerCards
+        width={properties[size].image.width}
+        height={properties[size].image.height}
+        margin={properties[size].containerCards.margin}
+        overflow={properties[size].containerCards.overflow}
+      >
+        {shuffle(films).map((film: IMovie) => (
+          <Card
+            key={film.id}
+            transtionSpan={properties[size].span.transition}
+            transtionImage={properties[size].image.transition}
+            opacity={properties[size].image.opacity}
+            borderRadius={properties[size].card.borderRadius}
+          >
             <Image
-              src={`https://image.tmdb.org/t/p/w300${film.poster_path}`}
+              src={`https://image.tmdb.org/t/p/${properties[size].image.size}${film.poster_path}`}
               alt={film.original_title}
               objectFit="cover"
               layout="fixed"
-              width={150}
-              height={200}
+              width={properties[size].image.width}
+              height={properties[size].image.height}
             />
             <ContainerOver>
               <ContentOver>
                 <Header>
-                  <span>{film.original_title}</span>
+                  {properties[size].title && <span>{film.original_title}</span>}
                   <span>
-                    <IconFavorite />
+                    <Favorite />
                   </span>
                 </Header>
                 <Footer>

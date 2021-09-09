@@ -6,17 +6,17 @@ export const Container = styled.div`
   align-items: center;
   align-content: center;
   justify-content: center;
-  width: 100%;
+  max-width: 100%;
   height: 2.8rem;
-  border-radius: 1.2rem;
-  padding: 0.5rem;
+  border-radius: 2rem;
+  padding: 0.25rem 1rem;
   color: ${(props) => props.theme.colors.secondary.two};
-  border: 0.2rem solid ${(props) => props.theme.colors.secondary.two};
+  border: 0.125rem solid ${(props) => props.theme.colors.secondary.two};
   margin-left: 1rem;
   transition: all 0.2s ease-in-out;
 
   &:hover {
     color: ${(props) => props.theme.colors.primary.four};
-    border: 0.2rem solid ${(props) => props.theme.colors.primary.four};
+    border: 0.125rem solid ${(props) => props.theme.colors.primary.four};
   }
 `;

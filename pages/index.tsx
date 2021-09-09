@@ -1,14 +1,13 @@
 import { GetStaticProps } from 'next';
 import React, { memo } from 'react';
 import List from '../components/List';
-import ListHeader from '../components/ListHeader';
 import { IApi } from '../interfaces/IApi';
 import FilmService from '../services/FilmService';
 
 const Home: React.FC<{ top: IApi; popular: IApi }> = ({ top, popular }) => {
   return (
     <div>
-      {true && <ListHeader films={top.results} />}
+      {true && <List films={top.results} size="big" />}
       {true && <List films={popular.results} />}
     </div>
   );

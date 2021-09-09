@@ -31,7 +31,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <title>I.A. Movie</title>
           <meta name="description" content="IA Movie" />
           <link rel="icon" href="/favicon.svg" />
 

@@ -1,6 +1,4 @@
-import { FavoriteBorder } from '@styled-icons/material';
 import styled from 'styled-components';
-import { IIconFavorite } from './IStyles';
 
 export const ContainerFixed = styled.div`
   position: sticky;
@@ -32,23 +30,10 @@ export const LogoContainer = styled.div`
   height: 5rem;
 `;
 
-export const IconFavorite = styled(FavoriteBorder)`
-  width: 2.75rem;
-  height: 2.75rem;
-`;
-
-export const IconFavoriteContainer = styled(IconFavorite)<IIconFavorite>`
-  margin: 1rem;
-  fill: ${({ favorite, theme }) => (favorite ? theme.colors.tertiary.two : theme.colors.quaternary.one)};
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    fill: ${({ favorite, theme }) => (favorite ? theme.colors.secondary.two : theme.colors.primary.four)};
-  }
-`;
 
 export const IconsContainer = styled.div`
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
   align-items: center;
   cursor: pointer;

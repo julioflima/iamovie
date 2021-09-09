@@ -26,7 +26,7 @@ export const Option = styled.a`
   font-size: small;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.secondary.one};
+    color: ${({ theme }) => theme.colors.primary.four};
     backdrop-filter: blur(4px);
     box-shadow: 0 0 20px 15px #0000001a;
   }
