@@ -20,7 +20,7 @@ export const ContainerCards = styled.div<IContainerCards>`
   flex: ${({ flex }) => flex};
 `;
 
-export const Card = styled.div<ICard>`
+export const Card = styled.a<ICard>`
   position: relative;
   display: flex;
   flex-direction: column;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from './styles';
 
-const Button: React.FC<{ favorite?: boolean; size?: 'big' | 'small'; button?: boolean }> = ({
+const Favorite: React.FC<{ favorite?: boolean; size?: 'big' | 'small'; button?: boolean }> = ({
   favorite = false,
   button = false,
   size = 'small'
@@ -9,4 +9,4 @@ const Button: React.FC<{ favorite?: boolean; size?: 'big' | 'small'; button?: bo
   return <Container favorite={favorite} size={size} button={button} />;
 };
 
-export default Button;
+export default Favorite;

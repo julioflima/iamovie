@@ -7,20 +7,20 @@ import React, { memo } from 'react';
 import { IMovieComplete } from '../../interfaces/IMovie';
 import FilmService from '../../services/FilmService';
 
-const SearchCategory: React.FC<{ film: IMovieComplete }> = ({ film }) => {
+const Film: React.FC<{ film: IMovieComplete }> = ({ film }) => {
   return (
     <>
-      <span>{film.runtime}</span>
-      <span>{new Date(film.release_date).getFullYear()}</span>
-      <span>{film.title}</span>
-      <span>{film.vote_average}</span>
+      <span>{film?.runtime}</span>
+      <span>{new Date(film?.release_date).getFullYear()}</span>
+      <span>{film?.title}</span>
+      <span>{film?.vote_average}</span>
       <span>favorite</span>
-      <span>{film.tagline}</span>
-      <span>{film.overview}</span>
-      <span>{film.genres.map((genre) => genre.name)}</span>
-      <span>{film.original_language}</span>
-      <span>{film.original_title}</span>
-      <span>{film.poster_path}</span>
+      <span>{film?.tagline}</span>
+      <span>{film?.overview}</span>
+      <span>{film?.genres.map((genre) => genre.name)}</span>
+      <span>{film?.original_language}</span>
+      <span>{film?.original_title}</span>
+      <span>{film?.poster_path}</span>
     </>
   );
 };
@@ -30,12 +30,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false
+    fallback: true
   };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { id } = params!;
+
+  console.log(id);
 
   const fs = new FilmService();
   const film = await fs.get(Number(id));
@@ -44,8 +46,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       film
     },
-    revalidate: 10
+    revalidate: 1
   };
 };
 
-export default memo(SearchCategory);
+export default memo(Film);
