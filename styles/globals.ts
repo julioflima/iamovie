@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 export default createGlobalStyle`
  :root {
      --font-sans-one: "Roboto", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", "Oxygen", Helvetica, "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+     --font-mono-one: "Major Mono Display", 'Fira Mono', 'DejaVu Sans Mono', Menlo, Consolas, 'Liberation Mono', Monaco, 'Lucida Console', monospace, ui-monospace, ui-serif, serif;
  }
  
  * {

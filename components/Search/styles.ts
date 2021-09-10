@@ -46,13 +46,13 @@ export const ContainerForm = styled.form<IContainerForm>`
   }
 
   & input:-moz-placeholder {
-    color: ${({ theme }) => theme.colors.quaternary.two};
+    color: ${({ theme }) => theme.colors.quaternary.three};
     font-size: 14px;
     line-height: 16px;
   }
 
   & input::-webkit-input-placeholder {
-    color: ${({ theme }) => theme.colors.quaternary.two};
+    color: ${({ theme }) => theme.colors.quaternary.three};
     font-size: 14px;
     line-height: 16px;
   }

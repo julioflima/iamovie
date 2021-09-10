@@ -3,11 +3,12 @@ import Link from 'next/link';
 import React from 'react';
 import { Favorite } from '..';
 import { IMovie } from '../../interfaces/IMovie';
-import { shuffle } from '../../utils';
 import properties from './properties';
 import { Badge, Card, Container, ContainerCards, ContainerOver, ContentOver, Footer, Header } from './styles';
 
-const List: React.FC<{ films?: IMovie[]; size?: 'big' | 'small' }> = ({ films = [], size = 'small' }) => {
+const List: React.FC<{ movies?: IMovie[]; size?: 'big' | 'small' }> = ({ movies = [], size = 'small' }) => {
+  const moviesShuffle = size === 'big' ? movies.sort(() => Math.random() - 0.5) : movies;
+
   return (
     <Container position={properties[size].container.position} paddingTop={properties[size].container.paddingTop}>
       <ContainerCards
@@ -17,8 +18,8 @@ const List: React.FC<{ films?: IMovie[]; size?: 'big' | 'small' }> = ({ films = 
         overflow={properties[size].containerCards.overflow}
         flex={properties[size].containerCards.flex}
       >
-        {shuffle(films).map((film: IMovie) => (
-          <Link key={film.id} href={`/${film.id}`} passHref>
+        {moviesShuffle.map((movie: IMovie) => (
+          <Link key={movie.id} href={`/movie/${movie.id}`} passHref>
             <Card
               transtionSpan={properties[size].span.transition}
               transtionImage={properties[size].image.transition}
@@ -27,25 +28,27 @@ const List: React.FC<{ films?: IMovie[]; size?: 'big' | 'small' }> = ({ films = 
               background={properties[size].card.background}
             >
               <Image
-                src={`https://image.tmdb.org/t/p/${properties[size].image.size}${film.poster_path}`}
-                alt={film.title}
+                src={`https://image.tmdb.org/t/p/${properties[size].image.size}${movie.poster_path}`}
+                alt={movie.title}
                 objectFit="cover"
                 layout="fixed"
                 width={properties[size].image.width}
                 height={properties[size].image.height}
+                placeholder="blur"
+                blurDataURL={`https://image.tmdb.org/t/p/w92${movie.poster_path}`}
               />
               <ContainerOver>
                 <ContentOver>
                   <Header>
-                    <span>{film.original_title}</span>
+                    <span>{movie.original_title}</span>
                     <span>
                       <Favorite />
                     </span>
                   </Header>
                   <Footer>
-                    <span>{new Date(film.release_date).getFullYear()}</span>
+                    <span>{new Date(movie.release_date).getFullYear()}</span>
                     <p />
-                    <Badge>{Number(film.vote_average).toFixed(1)}</Badge>
+                    <Badge>{Number(movie.vote_average).toFixed(1)}</Badge>
                   </Footer>
                 </ContentOver>
               </ContainerOver>

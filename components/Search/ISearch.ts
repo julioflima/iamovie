@@ -3,8 +3,8 @@ export interface IOption {
   id: string | number;
 }
 
-export interface ISearchBar {
-  searchIt: (query: string) => void;
+export interface ISearch {
+  search: (query: string) => void;
   placeholder?: string;
   id?: string;
 }

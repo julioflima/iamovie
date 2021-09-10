@@ -33,16 +33,15 @@ export default class MyDocument extends Document {
         <Head>
           <meta name="description" content="IA Movie" />
           <link rel="icon" href="/favicon.svg" />
-
           <meta charSet="utf-8" />
-          <link rel="preload" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-          <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 
-          <link href=" https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap" rel="stylesheet" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="https://fonts.gstatic.com" />
+          <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" />
+          <link rel="preconnect" href=" https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap" />
           <link
+            rel="preconnect"
             href=" https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
-            rel="stylesheet"
           />
 
           <script async src="https://polyfill.io/v3/polyfill.js" />

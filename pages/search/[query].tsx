@@ -1,0 +1,51 @@
+import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
+import React from 'react';
+import MoviesService from '../../services/MoviesService';
+
+const Home: React.FC<{}> = () => {
+  return (
+    <div>
+      {/* <List movies={response.results} /> */}
+      <Head>
+        <title>{`I.A. Movie - ${''}`}</title>
+      </Head>
+    </div>
+  );
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = ['black'].map((query) => ({ params: { query } }));
+
+  return {
+    paths,
+    fallback: true
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { query } = params as { query: string };
+
+  console.log({ query });
+
+  const response = new MoviesService().search('black');
+
+  console.log({ response });
+
+  if (!response)
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false
+      }
+    };
+
+  return {
+    props: {
+      response
+    },
+    revalidate: 1
+  };
+};
+
+export default memo(Home);

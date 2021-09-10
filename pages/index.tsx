@@ -1,26 +1,24 @@
 import { GetStaticProps } from 'next';
-import { useRouter } from 'next/router';
+import Head from 'next/head';
 import React, { memo } from 'react';
 import List from '../components/List';
-import Loading from '../components/Loading';
 import { IApi } from '../interfaces/IApi';
-import FilmService from '../services/FilmService';
+import MoviesService from '../services/MoviesService';
 
 const Home: React.FC<{ top: IApi; popular: IApi }> = ({ top, popular }) => {
-  const { isFallback } = useRouter();
-
-  if (isFallback) return <Loading />;
-
   return (
     <div>
-      <List films={top.results} size="big" />
-      <List films={popular.results} />
+      <Head>
+        <title>I.A. Movie</title>
+      </Head>
+      <List movies={top.results} size="big" />
+      <List movies={popular.results} />
     </div>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const fs = new FilmService();
+  const fs = new MoviesService();
   const popular = await fs.popular();
   const top = await fs.top();
 
