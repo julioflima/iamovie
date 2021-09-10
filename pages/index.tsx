@@ -5,10 +5,14 @@ import { IApi } from '../interfaces/IApi';
 import FilmService from '../services/FilmService';
 
 const Home: React.FC<{ top: IApi; popular: IApi }> = ({ top, popular }) => {
+  // const { isFallback } = useRouter();
+
+  // if (isFallback) return <Loading />;
+
   return (
     <div>
-      {true && <List films={top.results} size="big" />}
-      {true && <List films={popular.results} />}
+      <List films={top.results} size="big" />
+      <List films={popular.results} />
     </div>
   );
 };

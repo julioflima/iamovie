@@ -8,6 +8,10 @@ import { IMovieComplete } from '../../interfaces/IMovie';
 import FilmService from '../../services/FilmService';
 
 const Film: React.FC<{ film: IMovieComplete }> = ({ film }) => {
+  // const { isFallback } = useRouter();
+
+  // if (isFallback) return <Loading />;
+
   return (
     <>
       <span>{film?.runtime}</span>

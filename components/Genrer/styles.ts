@@ -9,7 +9,7 @@ export const Container = styled.div`
   width: 100%;
   height: 2.8rem;
   padding: 0.5rem;
-  color: ${(props) => props.theme.colors.quaternary.one};
+  color: ${({ theme }) => theme.colors.quaternary.one};
   margin-left: 3rem;
   transition: all 0.2s ease-in-out;
 `;
@@ -20,7 +20,7 @@ export const Option = styled.a`
   align-content: center;
   justify-content: center;
   width: 100%;
-  color: ${(props) => props.theme.colors.quaternary.one};
+  color: ${({ theme }) => theme.colors.quaternary.one};
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   font-size: small;

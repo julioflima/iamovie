@@ -57,11 +57,11 @@ export const ContainerForm = styled.form<IContainerForm>`
     line-height: 16px;
   }
 
-  ${(props) =>
-    props.value &&
+  ${({ theme, value }) =>
+    value &&
     css`
       & {
-        background: ${({ theme }) => `${theme.colors.primary.two}80`};
+        background: ${`${theme.colors.primary.two}80`};
       }
 
       & input {

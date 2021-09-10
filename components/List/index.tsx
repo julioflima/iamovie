@@ -9,7 +9,7 @@ import { Badge, Card, Container, ContainerCards, ContainerOver, ContentOver, Foo
 
 const List: React.FC<{ films?: IMovie[]; size?: 'big' | 'small' }> = ({ films = [], size = 'small' }) => {
   return (
-    <Container position={properties[size].container.position}>
+    <Container position={properties[size].container.position} paddingTop={properties[size].container.paddingTop}>
       <ContainerCards
         width={properties[size].image.width}
         height={properties[size].image.height}
@@ -24,6 +24,7 @@ const List: React.FC<{ films?: IMovie[]; size?: 'big' | 'small' }> = ({ films = 
               transtionImage={properties[size].image.transition}
               opacity={properties[size].image.opacity}
               borderRadius={properties[size].card.borderRadius}
+              background={properties[size].card.background}
             >
               <Image
                 src={`https://image.tmdb.org/t/p/${properties[size].image.size}${film.poster_path}`}
@@ -36,7 +37,7 @@ const List: React.FC<{ films?: IMovie[]; size?: 'big' | 'small' }> = ({ films = 
               <ContainerOver>
                 <ContentOver>
                   <Header>
-                    <span>{properties[size].title && film.original_title}</span>
+                    <span>{film.original_title}</span>
                     <span>
                       <Favorite />
                     </span>

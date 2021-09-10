@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
 export const ContainerFixed = styled.div`
-  position: sticky;
-  top: 0;
+  position: fixed;
   z-index: 9999;
-  width: 100%;
-  background: linear-gradient(180deg, ${(props) => `${props.theme.colors.primary.one}`} 0%, transparent 100%);
+  width: calc(100% - 5px);
+  background: linear-gradient(180deg, ${({ theme }) => `${theme.colors.primary.two}`} 0%, transparent 100%);
   backdrop-filter: blur(4px);
 `;
 

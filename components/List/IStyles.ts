@@ -4,6 +4,7 @@ export interface IIconFavorite {
 
 export interface IContainer {
   position: string;
+  paddingTop: string;
 }
 export interface IContainerCards {
   width: number;
@@ -18,4 +19,5 @@ export interface ICard {
   transtionImage: number;
   opacity: number;
   borderRadius: string;
+  background: string;
 }

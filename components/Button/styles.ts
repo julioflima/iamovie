@@ -10,13 +10,13 @@ export const Container = styled.div`
   height: 2.8rem;
   border-radius: 2rem;
   padding: 0.25rem 1rem;
-  color: ${(props) => props.theme.colors.secondary.two};
-  border: 0.125rem solid ${(props) => props.theme.colors.secondary.two};
+  color: ${({ theme }) => theme.colors.secondary.two};
+  border: 0.125rem solid ${({ theme }) => theme.colors.secondary.two};
   margin-left: 1rem;
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    color: ${(props) => props.theme.colors.primary.four};
-    border: 0.125rem solid ${(props) => props.theme.colors.primary.four};
+    color: ${({ theme }) => theme.colors.primary.four};
+    border: 0.125rem solid ${({ theme }) => theme.colors.primary.four};
   }
 `;

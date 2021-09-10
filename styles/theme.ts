@@ -12,6 +12,9 @@ export const theme = {
       one: '#ffffff',
       two: '#636366',
       three: '#454B6B'
+    },
+    quintenary: {
+      one: '#000000'
     }
   }
 };

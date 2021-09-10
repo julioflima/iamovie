@@ -16,9 +16,9 @@ export default createGlobalStyle`
  
  
    ::selection {
-   color:  ${(props) => props.theme.colors.primary.four};
-   background: ${(props) => `${props.theme.colors.primary.one}a0`} linear-gradient(0deg, ${(props) =>
-  `${props.theme.colors.primary.one}a0`} 0%, ${(props) => `${props.theme.colors.primary.one}a0`} 100%);
+   color:  ${({ theme }) => theme.colors.primary.four};
+   background: ${({ theme }) => `${theme.colors.primary.one}a0`} linear-gradient(0deg, ${({ theme }) =>
+  `${theme.colors.primary.one}a0`} 0%, ${({ theme }) => `${theme.colors.primary.one}a0`} 100%);
    }
 
    ::-webkit-scrollbar-track {
@@ -38,7 +38,7 @@ export default createGlobalStyle`
 
   ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: ${(props) => props.theme.colors.quaternary.one};
+    background-color: ${({ theme }) => theme.colors.quaternary.one};
     background-image: -webkit-gradient(
       linear,
       0 0,
@@ -52,18 +52,16 @@ export default createGlobalStyle`
  
  
  html {
-   height: 100%;
-   width: 100%;
-   position: fixed;
-   overflow: hidden;
- 
- 
- background: radial-gradient(ellipse at bottom, ${(props) => props.theme.colors.primary.one}, ${(props) =>
-  props.theme.colors.primary.one}),
-             radial-gradient(ellipse at top, ${(props) => props.theme.colors.primary.one}, ${(props) =>
-  props.theme.colors.primary.one});
- 
-   @media (max-width: 972px) {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
+  background: radial-gradient(ellipse at bottom, ${({ theme }) => theme.colors.primary.one}, ${({ theme }) =>
+  theme.colors.primary.one}),
+             radial-gradient(ellipse at top, ${({ theme }) => theme.colors.primary.one}, ${({ theme }) =>
+  theme.colors.primary.one});
+
+  @media (max-width: 972px) {
      overflow: revert;
    }
  }
@@ -87,7 +85,7 @@ export default createGlobalStyle`
   
  
    #__next{
-     background: ${(props) => props.theme.colors.primary.one};
+     background: ${({ theme }) => theme.colors.primary.two};
      min-height: 100%;
      width: 100%;
      display: flex;
@@ -98,5 +96,4 @@ export default createGlobalStyle`
      overflow-y: scroll;
      overflow-x: hidden;
    }
- 
  `;
