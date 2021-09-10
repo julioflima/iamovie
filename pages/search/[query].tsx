@@ -12,7 +12,7 @@ const Search: React.FC<{ response: IApi; query: string }> = ({ response, query }
         <title>{`I.A. Movie - ${query}`}</title>
       </Head>
       <HeaderFake />
-      <List movies={response.results} />
+      <List movies={response?.results} />
     </div>
   );
 };

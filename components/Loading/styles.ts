@@ -1,7 +1,9 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
+import { flipHorizontal } from './animation';
+import { IContainer } from './IStyles';
 
-export const Container = styled.div`
+export const Container = styled.div<IContainer>`
   position: fixed;
   display: flex;
   z-index: 999;
@@ -12,6 +14,10 @@ export const Container = styled.div`
   align-content: center;
   height: 100vh;
   width: 100%;
-  background: ${({ theme }) => `${theme.colors.quintenary.one}b0`};
+  background: ${({ theme, darkness }) => `${theme.colors.quintenary.one + darkness}`};
   backdrop-filter: blur(4px);
+
+  & > div {
+    animation: ${flipHorizontal} 1.5s linear infinite;
+  }
 `;

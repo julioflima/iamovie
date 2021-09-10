@@ -5,18 +5,17 @@ import LoadingContext from '../../contexts/LoadingContext';
 import { Container } from './styles';
 
 const Loading: React.FC = () => {
-  const { isFallback } = useRouter();
+  const { isFallback, pathname } = useRouter();
   const router = useRouter();
 
   const [loading, setLoading] = useContext(LoadingContext).loadingState;
 
-  const handleLoadingStart = (): void => {
-    setLoading(true);
-  };
+  const darkness = pathname?.includes('movie') ? '30' : 'b0';
+  const proportion = 1.5;
 
-  const handleLoadingStop = (): void => {
-    setLoading(false);
-  };
+  const handleLoadingStart = (): void => setLoading(true);
+
+  const handleLoadingStop = (): void => setLoading(false);
 
   router?.events?.on('routeChangeStart', handleLoadingStart);
 
@@ -24,11 +23,10 @@ const Loading: React.FC = () => {
 
   router?.events?.on('routeChangeError', handleLoadingStop);
 
-  const proportion = 2;
   return (
     <>
       {(isFallback || loading) && (
-        <Container>
+        <Container darkness={darkness}>
           <Image src="/logo.svg" alt="logo" width={70 * proportion} height={130 * proportion} />
         </Container>
       )}

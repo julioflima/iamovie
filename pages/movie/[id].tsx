@@ -6,6 +6,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import React, { memo } from 'react';
 import { HeaderFake } from '../../components';
+import Loading from '../../components/Loading';
 import { IMovieComplete } from '../../interfaces/IMovie';
 import MoviesService from '../../services/MoviesService';
 
@@ -16,6 +17,7 @@ const movie: React.FC<{ movie: IMovieComplete }> = ({ movie }) => {
         <title>{`I.A. Movie - ${movie?.title}`}</title>
       </Head>
       <HeaderFake />
+      <Loading />
       <span>{movie?.runtime}</span>
       <span>{new Date(movie?.release_date).getFullYear()}</span>
       <span>{movie?.title}</span>

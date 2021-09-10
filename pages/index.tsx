@@ -12,8 +12,8 @@ const Home: React.FC<{ top: IApi; popular: IApi }> = ({ top, popular }) => {
         <title>I.A. Movie</title>
       </Head>
       <HeaderFake />
-      <List movies={top.results} size="big" />
-      <List movies={popular.results} />
+      <List movies={top?.results} size="big" />
+      <List movies={popular?.results} />
     </div>
   );
 };
