@@ -1,14 +1,17 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
-import React from 'react';
+import React, { memo, useContext } from 'react';
+import QueryContext from '../../contexts/QueryContext';
 import MoviesService from '../../services/MoviesService';
 
 const Home: React.FC<{}> = () => {
+  const [query] = useContext(QueryContext).queryState;
+
   return (
     <div>
       {/* <List movies={response.results} /> */}
       <Head>
-        <title>{`I.A. Movie - ${''}`}</title>
+        <title>{`I.A. Movie - ${query}`}</title>
       </Head>
     </div>
   );
@@ -28,9 +31,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   console.log({ query });
 
-  const response = new MoviesService().search('black');
-
-  console.log({ response });
+  const response = await new MoviesService().search('black');
 
   if (!response)
     return {
