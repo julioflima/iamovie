@@ -3,14 +3,16 @@
  */
 
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
 import React, { memo } from 'react';
+import Loading from '../../components/Loading';
 import { IMovieComplete } from '../../interfaces/IMovie';
 import FilmService from '../../services/FilmService';
 
 const Film: React.FC<{ film: IMovieComplete }> = ({ film }) => {
-  // const { isFallback } = useRouter();
+  const { isFallback } = useRouter();
 
-  // if (isFallback) return <Loading />;
+  if (isFallback) return <Loading />;
 
   return (
     <>

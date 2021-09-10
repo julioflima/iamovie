@@ -1,13 +1,15 @@
 import { GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
 import React, { memo } from 'react';
 import List from '../components/List';
+import Loading from '../components/Loading';
 import { IApi } from '../interfaces/IApi';
 import FilmService from '../services/FilmService';
 
 const Home: React.FC<{ top: IApi; popular: IApi }> = ({ top, popular }) => {
-  // const { isFallback } = useRouter();
+  const { isFallback } = useRouter();
 
-  // if (isFallback) return <Loading />;
+  if (isFallback) return <Loading />;
 
   return (
     <div>

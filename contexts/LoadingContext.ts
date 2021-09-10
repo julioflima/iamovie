@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { TLoadingContext } from '../types';
+import { TLoadingContext } from '../types/TLoadingContext';
 
 const loadingContext: TLoadingContext = {
   loadingState: [false, () => {}]
