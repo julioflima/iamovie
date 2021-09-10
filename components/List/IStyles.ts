@@ -10,6 +10,7 @@ export interface IContainerCards {
   height: number;
   margin: string;
   overflow: string;
+  flex: string;
 }
 
 export interface ICard {

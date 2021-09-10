@@ -3,28 +3,10 @@ import React from 'react';
 import { Favorite } from '..';
 import { IMovie } from '../../interfaces/IMovie';
 import { shuffle } from '../../utils';
+import properties from './properties';
 import { Badge, Card, Container, ContainerCards, ContainerOver, ContentOver, Footer, Header } from './styles';
 
 const List: React.FC<{ films?: IMovie[]; size?: 'big' | 'small' }> = ({ films = [], size = 'small' }) => {
-  const properties = {
-    small: {
-      title: true,
-      container: { position: 'absolute', absolute: true },
-      containerCards: { margin: '0.5rem', overflow: 'revert' },
-      card: { borderRadius: '0.125rem' },
-      span: { transition: 0.4 },
-      image: { size: 'w300', width: 150, height: 200, transition: 0.2, opacity: 0.6 }
-    },
-    big: {
-      title: false,
-      container: { position: 'revert', absolute: false },
-      containerCards: { margin: '0rem', overflow: 'hidden' },
-      card: { borderRadius: '0rem' },
-      span: { transition: 0.4 },
-      image: { size: 'original', width: 300, height: 500, transition: 0.2, opacity: 0.2 }
-    }
-  };
-
   return (
     <Container position={properties[size].container.position}>
       <ContainerCards
@@ -32,6 +14,7 @@ const List: React.FC<{ films?: IMovie[]; size?: 'big' | 'small' }> = ({ films = 
         height={properties[size].image.height}
         margin={properties[size].containerCards.margin}
         overflow={properties[size].containerCards.overflow}
+        flex={properties[size].containerCards.flex}
       >
         {shuffle(films).map((film: IMovie) => (
           <Card
@@ -52,7 +35,7 @@ const List: React.FC<{ films?: IMovie[]; size?: 'big' | 'small' }> = ({ films = 
             <ContainerOver>
               <ContentOver>
                 <Header>
-                  {properties[size].title && <span>{film.original_title}</span>}
+                  <span>{properties[size].title && film.original_title}</span>
                   <span>
                     <Favorite />
                   </span>

@@ -12,10 +12,12 @@ export const Container = styled.div<IContainer>`
 
 export const ContainerCards = styled.div<IContainerCards>`
   display: grid;
+  gap: ${({ margin }) => margin};
   grid-template-columns: repeat(auto-fill, minmax(${({ width }) => width}px, 2fr));
   height: ${({ height }) => height}px;
   overflow: ${({ overflow }) => overflow};
   margin: ${({ margin }) => margin};
+  flex: ${({ flex }) => flex};
 `;
 
 export const Card = styled.div<ICard>`
@@ -44,7 +46,7 @@ export const Card = styled.div<ICard>`
     }
 
     span {
-      display: revert;
+      display: flex;
     }
   }
 `;
@@ -68,6 +70,18 @@ export const Header = styled.div`
   display: grid;
   gap: 1em;
   grid-template-columns: 9fr 1fr;
+
+  & {
+    span {
+      flex-direction: row;
+      justify-content: flex-start;
+      width: 100%;
+    }
+
+    span:last-child {
+      justify-content: flex-end;
+    }
+  }
 `;
 
 export const Footer = styled.div`

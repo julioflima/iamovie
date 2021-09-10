@@ -1,14 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import {Button,Favorite,Genrer,Search} from '../';
-import {
-  Container,
-  ContainerFixed,
-  ContainerLinks,
-  IconsContainer,
-  LogoContainer
-} from './styles';
+import { Button, Favorite, Genrer, Search } from '..';
+import { Container, ContainerFixed, ContainerLinks, IconsContainer, LogoContainer } from './styles';
 
 const Header: React.FC = () => {
   return (
@@ -26,7 +20,7 @@ const Header: React.FC = () => {
         </ContainerLinks>
         <IconsContainer>
           <Search searchIt={() => {}} />
-          <Favorite />
+          <Favorite size="big" button />
           <Button>Sign In</Button>
         </IconsContainer>
       </Container>

@@ -30,7 +30,6 @@ export const LogoContainer = styled.div`
   height: 5rem;
 `;
 
-
 export const IconsContainer = styled.div`
   display: flex;
   justify-content: space-between;
