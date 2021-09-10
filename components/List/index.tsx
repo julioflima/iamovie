@@ -6,11 +6,11 @@ import { IMovie } from '../../interfaces/IMovie';
 import properties from './properties';
 import { Badge, Card, Container, ContainerCards, ContainerOver, ContentOver, Footer, Header } from './styles';
 
-const List: React.FC<{ movies?: IMovie[]; size?: 'big' | 'small' }> = ({ movies = [], size = 'small' }) => {
-  const moviesShuffle = size === 'big' ? movies.sort(() => Math.random() - 0.5) : movies;
+const List: React.FC<{ movies: IMovie[]; size?: 'big' | 'small' }> = ({ movies, size = 'small' }) => {
+  const moviesShuffle = size === 'big' ? movies?.sort(() => Math.random() - 0.5) : movies;
 
   return (
-    <Container position={properties[size].container.position} paddingTop={properties[size].container.paddingTop}>
+    <Container position={properties[size].container.position}>
       <ContainerCards
         width={properties[size].image.width}
         height={properties[size].image.height}
@@ -18,7 +18,7 @@ const List: React.FC<{ movies?: IMovie[]; size?: 'big' | 'small' }> = ({ movies 
         overflow={properties[size].containerCards.overflow}
         flex={properties[size].containerCards.flex}
       >
-        {moviesShuffle.map((movie: IMovie) => (
+        {moviesShuffle?.map((movie: IMovie) => (
           <Link key={movie.id} href={`/movie/${movie.id}`} passHref>
             <Card
               transtionSpan={properties[size].span.transition}

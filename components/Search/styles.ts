@@ -46,13 +46,13 @@ export const ContainerForm = styled.form<IContainerForm>`
   }
 
   & input:-moz-placeholder {
-    color: ${({ theme }) => theme.colors.quaternary.three};
+    color: ${({ theme }) => `${theme.colors.secondary.one}b0`};
     font-size: 14px;
     line-height: 16px;
   }
 
   & input::-webkit-input-placeholder {
-    color: ${({ theme }) => theme.colors.quaternary.three};
+    color: ${({ theme }) => `${theme.colors.secondary.one}b0`};
     font-size: 14px;
     line-height: 16px;
   }
@@ -61,7 +61,7 @@ export const ContainerForm = styled.form<IContainerForm>`
     value &&
     css`
       & {
-        background: ${`${theme.colors.primary.two}80`};
+        background: ${`${theme.colors.quaternary.three}20`};
       }
 
       & input {

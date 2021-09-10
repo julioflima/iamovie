@@ -1,18 +1,18 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
-import React, { memo, useContext } from 'react';
-import QueryContext from '../../contexts/QueryContext';
+import React, { memo } from 'react';
+import { HeaderFake, List } from '../../components';
+import { IApi } from '../../interfaces/IApi';
 import MoviesService from '../../services/MoviesService';
 
-const Home: React.FC<{}> = () => {
-  const [query] = useContext(QueryContext).queryState;
-
+const Search: React.FC<{ response: IApi; query: string }> = ({ response, query }) => {
   return (
     <div>
-      {/* <List movies={response.results} /> */}
       <Head>
         <title>{`I.A. Movie - ${query}`}</title>
       </Head>
+      <HeaderFake />
+      <List movies={response.results} />
     </div>
   );
 };
@@ -29,9 +29,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { query } = params as { query: string };
 
-  console.log({ query });
-
-  const response = await new MoviesService().search('black');
+  const response = await new MoviesService().search(query);
 
   if (!response)
     return {
@@ -43,10 +41,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: {
-      response
+      response,
+      query
     },
     revalidate: 1
   };
 };
 
-export default memo(Home);
+export default memo(Search);

@@ -4,7 +4,6 @@ export interface IIconFavorite {
 
 export interface IContainer {
   position: string;
-  paddingTop: string;
 }
 export interface IContainerCards {
   width: number;

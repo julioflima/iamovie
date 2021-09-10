@@ -1,11 +1,9 @@
-import React, { ChangeEvent, SyntheticEvent, useContext, useRef, useState } from 'react';
-import QueryContext from '../../contexts/QueryContext';
+import React, { ChangeEvent, SyntheticEvent, useRef, useState } from 'react';
 import { ISearch } from './ISearch';
 import { Container, ContainerForm, IconClose, Icone } from './styles';
 
 const Search: React.FC<ISearch> = ({ search, placeholder, id }) => {
-  const [query, setQuery] = useContext(QueryContext).queryState;
-
+  const [query, setQuery] = useState('');
   const [focused, setFocused] = useState(false);
 
   const searchRef = useRef<HTMLInputElement | null>(null);

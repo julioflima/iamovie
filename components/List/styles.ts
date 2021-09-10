@@ -8,7 +8,6 @@ export const Container = styled.div<IContainer>`
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding-top: ${({ paddingTop }) => paddingTop};
 `;
 
 export const ContainerCards = styled.div<IContainerCards>`

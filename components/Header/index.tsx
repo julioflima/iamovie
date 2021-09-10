@@ -1,28 +1,20 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useContext } from 'react';
+import React from 'react';
 import { Button, Favorite, Genrer, Search } from '..';
-import QueryContext from '../../contexts/QueryContext';
 import { Container, ContainerFixed, ContainerLinks, IconsContainer, LogoContainer } from './styles';
 
 const Header: React.FC = () => {
   const router = useRouter();
 
-  const [, setQuery] = useContext(QueryContext).queryState;
-
-  const search = (_query: string): void => {
-    setQuery(_query);
-
+  const search = (query: string): void => {
     router.push(
       {
-        pathname: `/[search]`,
-        query: {
-          query: _query
-        }
+        pathname: `/${!!query && `search/[query]`}`,
+        ...(!!query && { query: { query } })
       },
-      `/${_query}`,
-      { shallow: true }
+      `/${!!query && `search/${query}`}`
     );
   };
 
