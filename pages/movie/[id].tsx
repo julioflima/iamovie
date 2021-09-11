@@ -5,31 +5,20 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import React, { memo } from 'react';
-import { HeaderFake } from '../../components';
-import Loading from '../../components/Loading';
+import { HeaderFake, Movie } from '../../components';
+import { Container } from '../../components/Content/styles';
 import { IMovieComplete } from '../../interfaces/IMovie';
 import MoviesService from '../../services/MoviesService';
 
 const movie: React.FC<{ movie: IMovieComplete }> = ({ movie }) => {
   return (
-    <>
+    <Container>
       <Head>
         <title>{`I.A. Movie - ${movie?.title}`}</title>
       </Head>
       <HeaderFake />
-      <Loading />
-      <span>{movie?.runtime}</span>
-      <span>{new Date(movie?.release_date).getFullYear()}</span>
-      <span>{movie?.title}</span>
-      <span>{movie?.vote_average}</span>
-      <span>favorite</span>
-      <span>{movie?.tagline}</span>
-      <span>{movie?.overview}</span>
-      <span>{movie?.genres.map((genre) => genre.name)}</span>
-      <span>{movie?.original_language}</span>
-      <span>{movie?.original_title}</span>
-      <span>{movie?.poster_path}</span>
-    </>
+      <Movie movie={movie} />
+    </Container>
   );
 };
 

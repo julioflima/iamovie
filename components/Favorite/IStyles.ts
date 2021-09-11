@@ -1,5 +1,5 @@
 export interface IContainer {
   button: boolean;
   favorite: boolean;
-  size: 'big' | 'small';
+  size: 'big' | 'bigger' | 'small';
 }

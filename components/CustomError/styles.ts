@@ -14,9 +14,12 @@ export const Container = styled.a`
   width: 100%;
   background: ${({ theme }) => `${theme.colors.quintenary.one}30`};
   backdrop-filter: blur(4px);
-  font-family: var(--font-sans-one);
 
   & svg {
     fill: ${({ theme }) => theme.colors.secondary.two};
+  }
+
+  & h1 {
+    font-family: var(--font-mono-one);
   }
 `;

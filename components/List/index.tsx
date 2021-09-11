@@ -19,7 +19,7 @@ const List: React.FC<{ movies: IMovie[]; size?: 'big' | 'small' }> = ({ movies, 
         flex={properties[size].containerCards.flex}
       >
         {moviesShuffle?.map((movie: IMovie) => (
-          <Link key={movie.id} href={`/movie/${movie.id}`} passHref>
+          <Link key={movie?.id} href={`/movie/${movie?.id}`} passHref>
             <Card
               transtionSpan={properties[size].span.transition}
               transtionImage={properties[size].image.transition}
@@ -28,27 +28,27 @@ const List: React.FC<{ movies: IMovie[]; size?: 'big' | 'small' }> = ({ movies, 
               background={properties[size].card.background}
             >
               <Image
-                src={`https://image.tmdb.org/t/p/${properties[size].image.size}${movie.poster_path}`}
-                alt={movie.title}
+                src={`https://image.tmdb.org/t/p/${properties[size].image.size}${movie?.poster_path}`}
+                alt={movie?.title}
                 objectFit="cover"
                 layout="fixed"
                 width={properties[size].image.width}
                 height={properties[size].image.height}
                 placeholder="blur"
-                blurDataURL={`https://image.tmdb.org/t/p/w92${movie.poster_path}`}
+                blurDataURL={`https://image.tmdb.org/t/p/w92${movie?.poster_path}`}
               />
               <ContainerOver>
                 <ContentOver>
                   <Header>
-                    <span>{movie.original_title}</span>
+                    <span>{movie?.original_title}</span>
                     <span>
                       <Favorite />
                     </span>
                   </Header>
                   <Footer>
-                    <span>{new Date(movie.release_date).getFullYear()}</span>
+                    <span>{new Date(movie?.release_date).getFullYear()}</span>
                     <p />
-                    <Badge>{Number(movie.vote_average).toFixed(1)}</Badge>
+                    <Badge>{Number(movie?.vote_average).toFixed(1)}</Badge>
                   </Footer>
                 </ContentOver>
               </ContainerOver>

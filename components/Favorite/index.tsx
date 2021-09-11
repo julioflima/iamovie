@@ -1,14 +1,15 @@
+import { FavoriteBorder } from '@styled-icons/material';
 import React from 'react';
-import { Container, IconFavorite } from './styles';
+import { Container } from './styles';
 
-const Favorite: React.FC<{ favorite?: boolean; size?: 'big' | 'small'; button?: boolean }> = ({
+const Favorite: React.FC<{ favorite?: boolean; size?: 'big' | 'bigger' | 'small'; button?: boolean }> = ({
   favorite = false,
   button = false,
   size = 'small'
 }) => {
   return (
     <Container button={button} favorite={favorite} size={size}>
-      <IconFavorite />
+      <FavoriteBorder />
     </Container>
   );
 };

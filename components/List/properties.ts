@@ -4,9 +4,9 @@ const properties = {
   small: {
     container: { position: 'absolute', absolute: true },
     containerCards: { margin: '0.5rem', overflow: 'revert', flex: '1' },
-    card: { borderRadius: '0.125rem', background: theme.colors.secondary.one },
+    card: { borderRadius: '0.125rem', background: theme.colors.primary.one },
     span: { transition: 0.4 },
-    image: { size: 'w300', width: 150, height: 250, transition: 0.2, opacity: 0.9 }
+    image: { size: 'w300', width: 150, height: 250, transition: 0.2, opacity: 0.5 }
   },
   big: {
     container: { position: 'revert', absolute: false },

@@ -14,7 +14,7 @@ const CustomError: React.FC<{ path: string; text: string }> = ({ path, text }) =
       </Head>
       <Link href="/" passHref>
         <Container>
-          <Image src={path} alt="logo" width={70 * proportion} height={130 * proportion} />
+          <Image src={path} alt={text} width={70 * proportion} height={130 * proportion} />
           <h1>{text}</h1>
         </Container>
       </Link>
