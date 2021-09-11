@@ -4,11 +4,12 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
-  width: 10rem;
-  margin: 1.5rem;
+  width: 12rem;
   transition: all 0.2s ease-in-out;
-  border-radius: 1rem;
-  border: 0.125rem solid #e1e1e1;
+  border-radius: 0.5rem;
+  border: 0.115rem solid ${({ theme }) => theme.colors.quaternary.two + 80};
+  cursor: pointer;
+  height: 2.5rem;
 
   & span {
     display: flex;
@@ -16,11 +17,17 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    user-select: none;
   }
 
   &:hover {
-    background-color: red;
+    background-color: ${({ theme }) => theme.colors.primary.one + 10};
+  }
+
+  &:active {
+    background-color: ${({ theme }) => theme.colors.primary.four};
   }
 `;
 
@@ -30,10 +37,13 @@ export const ContainerImage = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 9;
-  background: orange;
-  border-radius: 0.78rem 0 0 0.78rem;
+  background: ${({ theme }) => theme.colors.secondary.six};
+  border-radius: 0.4rem 0 0 0.4rem;
+  padding: 1rem;
 
   & > div {
+    top: -6px;
+    right: -4px;
     display: flex;
     flex-direction: row;
     align-items: center;

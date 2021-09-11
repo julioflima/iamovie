@@ -38,7 +38,7 @@ const Movie: React.FC<{ movie: IMovieComplete }> = ({ movie }) => {
           <Paragraph label="Summarize">{movie?.tagline}</Paragraph>
         </Column>
         <Column>
-          <Paragraph label="Genres">{`${genres.slice(0, genres.length - 2)}.` ?? ''}</Paragraph>
+          <Paragraph label="Genres">{`${genres?.slice(0, genres.length - 2)}.` ?? ''}</Paragraph>
         </Column>
         <Column>
           <Paragraph label="Original Language">{String(movie?.original_language).toLocaleUpperCase()}</Paragraph>

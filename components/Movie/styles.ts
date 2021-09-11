@@ -18,7 +18,7 @@ export const ImageContainer = styled.div`
   justify-content: center;
   align-items: stretch;
   width: 100%;
-  max-width: 40vw;
+  max-width: 35vw;
   position: relative;
 
   & > div {
@@ -30,7 +30,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   transition: all 0.2s ease-in-out;
-  width: 60vw;
+  width: 65vw;
   max-width: 700px;
   margin: 0 auto;
 `;
@@ -44,4 +44,6 @@ export const Column = styled.div`
 export const Row = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
+  align-items: center;
 `;

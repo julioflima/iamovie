@@ -2,7 +2,7 @@
 export const theme = {
   colors: {
     primary: { one: '#161A36', two: '#212040', three: '#242444', four: '#556FE5', five: '#076ACE', six: '#3FB7FE' },
-    secondary: { one: '#FFEB39', two: '#FFDF39', three: '#FFC839', four: '#E1A766' },
+    secondary: { one: '#FFEB39', two: '#FFDF39', three: '#FFC839', four: '#E1A766', six: 'orange' },
     tertiary: {
       one: '#FF395D',
       two: '#FF398C',

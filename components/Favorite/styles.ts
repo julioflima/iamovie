@@ -8,8 +8,8 @@ export const Container = styled.div<IContainer>`
   transition: all 0.2s ease-in-out;
 
   & svg {
-    width: ${({ size }) => (size === 'bigger' ? '2rem' : size === 'big' ? '1.2rem' : '1rem')};
-    height: ${({ size }) => (size === 'bigger' ? '2rem' : size === 'big' ? '1.2rem' : '1rem')};
+    width: ${({ size }) => (size === 'bigger' ? '1.7rem' : size === 'big' ? '1.2rem' : '1rem')};
+    height: ${({ size }) => (size === 'bigger' ? '1.7rem' : size === 'big' ? '1.2rem' : '1rem')};
 
     fill: ${({ favorite, theme }) => (favorite ? theme.colors.tertiary.two : theme.colors.quaternary.one)};
 

@@ -9,10 +9,13 @@ export default class MoviesService extends ApiService {
 
   private language: string;
 
+  private list_id: string;
+
   constructor() {
     super();
     this.api_key = '8bc6f6b692d1adc6f1d9d684a9b4cc5f';
     this.language = 'en-US';
+    this.list_id = 'en-US';
   }
 
   public async search(query: string): Promise<IApi> {
@@ -46,9 +49,52 @@ export default class MoviesService extends ApiService {
   public async get(id: number): Promise<IMovieComplete> {
     return this.api.get(`/3/movie/${id}`, {
       params: {
-        api_key: this.api_key,
-        language: this.language
+        api_key: this.api_key
       }
     });
+  }
+
+  public async createList(): Promise<IMovieComplete> {
+    return this.api.post(
+      `/3/list`,
+      {
+        name: 'Favorit List',
+        description: 'Favorite list of Atlântico.',
+        language: 'en'
+      },
+      {
+        params: {
+          api_key: this.api_key
+        }
+      }
+    );
+  }
+
+  public async addMovie(id: number): Promise<IMovieComplete> {
+    return this.api.post(
+      `/3/list/${this.list_id}/add_item`,
+      {
+        media_id: id
+      },
+      {
+        params: {
+          api_key: this.api_key
+        }
+      }
+    );
+  }
+
+  public async removeMovie(id: number): Promise<IMovieComplete> {
+    return this.api.post(
+      `/3/list/${this.list_id}/add_item`,
+      {
+        media_id: id
+      },
+      {
+        params: {
+          api_key: this.api_key
+        }
+      }
+    );
   }
 }
