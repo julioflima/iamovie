@@ -3,6 +3,10 @@ import styled from 'styled-components';
 
 export const Container = styled.h1`
   font-family: var(--font-sans-one);
-  font-size: 80px;
+  font-size: 2.5vw;
   font-weight: 300;
+
+  & > span {
+    font-size: 1vw;
+  }
 `;

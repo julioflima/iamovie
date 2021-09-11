@@ -6,4 +6,14 @@ export const Container = styled.div`
   flex-direction: column;
   flex: 1;
   overflow: hidden;
+  text-align: justify;
+  font-size: 14px;
+  line-height: 1rem;
+
+  & label {
+    padding-bottom: 0.25rem;
+    font-size: 16px;
+    font-weight: 500;
+    color: ${({ theme }) => theme.colors.primary.six};
+  }
 `;

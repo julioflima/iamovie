@@ -5,7 +5,8 @@ const Title: React.FC<{ subtitle: string }> = ({ children, subtitle }) => {
   return (
     <Container>
       {children}
-      <span>{subtitle}</span>
+      <br />
+      <span>{`(${subtitle})`}</span>
     </Container>
   );
 };

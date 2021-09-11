@@ -17,7 +17,7 @@ export default createGlobalStyle`
  
  
    ::selection {
-   color:  ${({ theme }) => theme.colors.primary.four};
+   color:  ${({ theme }) => theme.colors.secondary.one};
    background: ${({ theme }) => `${theme.colors.primary.one}a0`} linear-gradient(0deg, ${({ theme }) =>
   `${theme.colors.primary.one}a0`} 0%, ${({ theme }) => `${theme.colors.primary.one}a0`} 100%);
    }

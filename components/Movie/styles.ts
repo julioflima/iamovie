@@ -18,7 +18,7 @@ export const ImageContainer = styled.div`
   justify-content: center;
   align-items: stretch;
   width: 100%;
-  max-width: 50vw;
+  max-width: 40vw;
   position: relative;
 
   & > div {
@@ -26,21 +26,22 @@ export const ImageContainer = styled.div`
   }
 `;
 
-export const Column = styled.div`
-  position: relative;
+export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  cursor: pointer;
   transition: all 0.2s ease-in-out;
-  width: 50vw;
-  align-items: center;
-  align-content: center;
+  width: 60vw;
+  max-width: 700px;
+  margin: 0 auto;
+`;
+
+export const Column = styled.div`
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Row = styled.div`
   display: flex;
   flex-direction: row;
-
-  max-width: 700px;
-  margin: 0 auto;
 `;

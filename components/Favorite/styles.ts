@@ -16,5 +16,9 @@ export const Container = styled.div<IContainer>`
     &:hover {
       fill: ${({ favorite, theme }) => (favorite ? theme.colors.secondary.two : theme.colors.primary.four)};
     }
+
+    &:active {
+      fill: ${({ theme }) => theme.colors.tertiary.two};
+    }
   }
 `;
