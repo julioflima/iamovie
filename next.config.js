@@ -3,6 +3,6 @@ module.exports = {
   reactStrictMode: true,
   images: {
     imageSizes: [384],
-    domains: ['image.tmdb.org']
+    domains: ['image.tmdb.org', 'iamovie.herokuapp.com']
   }
 };
