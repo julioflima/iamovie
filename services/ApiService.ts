@@ -26,6 +26,6 @@ export default abstract class ApiService {
   }
 
   private handleErrorApi<T>(error: Error | AxiosError<T>): Error | AxiosError<T> {
-    return error;
+    throw error;
   }
 }

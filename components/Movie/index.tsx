@@ -2,14 +2,20 @@ import Image from 'next/image';
 import React from 'react';
 import { BadgeImdb, Description, Favorite, Paragraph, Title } from '..';
 import { IMovieComplete } from '../../interfaces/IMovie';
-import MoviesService from '../../services/MoviesService';
 import { Column, Container, Content, ImageContainer, Row } from './styles';
 
 const Movie: React.FC<{ movie: IMovieComplete }> = ({ movie }) => {
   const genres = movie?.genres.map((genre) => `${genre.name}, `).join('');
 
   const handleClick = (): void => {
-    new MoviesService().createList();
+    fetch('/api/list', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name: 'Favorit List', description: 'Favorite list of Atlântico' })
+    });
   };
 
   return (
@@ -31,6 +37,7 @@ const Movie: React.FC<{ movie: IMovieComplete }> = ({ movie }) => {
           <Row>
             <BadgeImdb score={movie?.vote_average} />
             <Favorite button size="bigger" />
+            {/* eslint-disable-next-line react/button-has-type */}
             <button onClick={handleClick}>test</button>
           </Row>
         </Column>
