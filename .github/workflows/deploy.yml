@@ -1,34 +1,31 @@
-name: 'Deploy Frontend on Heroku'
+name: 'IA Movie on Heroku'
 
 on:
   push:
     branches:
-      - develop
+      - master
 
 jobs:
   frontend-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
+      - name: Check out code.
         uses: actions/checkout@v2
 
-      - name: Login to Heroku Container registry frontend
+      - name: Login to Heroku Container registry frontend.
         env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          HEROKU_API_KEY: e69aa951-1b4c-4af5-ba2f-3d26f7044936
         run: heroku container:login
 
-      - name: Build docker image
-        working-directory: packages/frontend
-        run: sudo docker build -t ai-movie .
+      - name: Build docker image.
+        run: sudo docker build -t iamovie .
 
-      - name: Push container to docker registry heroku
-        working-directory: packages/frontend
+      - name: Push container to docker registry Heroku.
         env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:push -a ai-movie web
+          HEROKU_API_KEY: e69aa951-1b4c-4af5-ba2f-3d26f7044936
+        run: heroku container:push -a iamovie web
 
-      - name: Release frontend in Heroku
-        working-directory: packages/frontend
+      - name: Release frontend in Heroku.
         env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:release -a ai-movie web
+          HEROKU_API_KEY: e69aa951-1b4c-4af5-ba2f-3d26f7044936
+        run: heroku container:release -a iamovie web

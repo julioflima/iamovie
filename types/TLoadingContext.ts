@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from 'react';
+
 export type TLoadingContext = {
-  loadingState: [boolean, (loading: boolean) => void];
+  loadingState: [boolean, Dispatch<SetStateAction<boolean>>];
 };

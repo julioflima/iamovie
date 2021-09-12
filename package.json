@@ -1,5 +1,5 @@
 {
-  "name": "gran_cursos_online",
+  "name": "ai-movie",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -17,7 +17,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "styled-components": "^5.3.1",
-    "use-fetching": "^1.0.2"
+    "use-fetching": "^1.0.8"
   },
   "devDependencies": {
     "@types/react": "17.0.19",
