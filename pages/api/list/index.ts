@@ -9,11 +9,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void>
     } = req;
 
     // Init the consts.
-    const nameString = String(name) || '';
-    const descriptionString = String(description) || '';
+    const nameString = String(name);
+    const descriptionString = String(description);
 
     // Validations
-    // if (method !== 'POST') throw res.status(500).json({ error: 'Method not allowed!' });
+    if (method !== 'POST') throw res.status(500).json({ error: 'Method not allowed!' });
 
     if (typeof nameString !== 'string')
       throw res.status(500).json({ error: 'The parameter "name", must be a string!' });
