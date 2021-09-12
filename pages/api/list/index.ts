@@ -29,7 +29,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void>
 
     return res.status(200).json(response);
   } catch (error) {
-    return res.status(500).json(error.message);
+    const err = error instanceof Error ? error : new Error('Internal error!');
+    return res.status(500).json(err.message);
   }
 };
 

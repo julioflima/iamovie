@@ -2,7 +2,7 @@
 
 import ApiService from './ApiService';
 
-export default class MoviesService extends ApiService {
+export default class TmdbService extends ApiService {
   protected base_url: string;
 
   protected api_key: string;

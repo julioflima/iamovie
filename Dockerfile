@@ -1,15 +1,15 @@
 # build environment
-FROM node:13.12.0-alpine as build
+FROM node:alpine as build
 
 WORKDIR /app
 
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package*.json ./
 
-RUN npm install
-RUN npm install react-scripts@3.4.1 -g --silent
+RUN yarn
+RUN yarn global add react-scripts@3.4.1 --silent
 COPY . /app
-RUN npm run build
+RUN yarn build
 
 # production environment
 FROM nginx:stable-alpine

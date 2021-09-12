@@ -4,7 +4,7 @@ import { IApi } from '../interfaces/IApi';
 import { IGenres } from '../interfaces/IGenres';
 import TmdbService from './TmdbService';
 
-export default class MoviesService extends TmdbService {
+export default class GenresService extends TmdbService {
   public async genre(genre_id: number): Promise<IApi> {
     return this.api.get('/3/discover/movie', {
       params: {

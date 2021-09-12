@@ -3,7 +3,7 @@ import Head from 'next/head';
 import React, { memo } from 'react';
 import { HeaderFake, List } from '../../components';
 import { IApi } from '../../interfaces/IApi';
-import MoviesService from '../../services/MoviesService';
+import GenresService from '../../services/GenresService';
 
 const Search: React.FC<{ response: IApi; genre: string }> = ({ response, genre }) => {
   return (
@@ -18,7 +18,9 @@ const Search: React.FC<{ response: IApi; genre: string }> = ({ response, genre }
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = ['drama'].map((genre) => ({ params: { genre } }));
+  const { genres } = await new GenresService().getGenres();
+
+  const paths = genres.map(({ id }) => ({ params: { id: String(id) } }));
 
   return {
     paths,
@@ -27,9 +29,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { genre } = params as { genre: string };
+  const { id } = params as { id: string };
 
-  const response = await new MoviesService().genre();
+  const { genres } = await new GenresService().getGenres();
+
+  const name = genres.find(({ id: genreId }) => genreId === Number(id))?.name ?? '';
+
+  const response = await new GenresService().genre(Number(id));
 
   if (!response)
     return {
@@ -42,7 +48,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       response,
-      genre
+      genre: name
     },
     revalidate: 1
   };
