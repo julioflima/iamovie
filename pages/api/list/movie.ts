@@ -10,10 +10,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void>
 
     // Init consts.
     const methodString = String(method);
-    const movieNumber = Number(movie_id) || 18;
+    const movieNumber = Number(movie_id);
 
     // Validations.
-    // if (methodString !== 'POST') throw res.status(500).json({ error: 'Method not allowed!' });
+    if (methodString !== 'POST') throw res.status(500).json({ error: 'Method not allowed!' });
 
     if (typeof movieNumber !== 'number')
       throw res.status(500).json({ error: 'The parameter "movie_id", must be a number!' });
