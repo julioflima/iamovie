@@ -4,6 +4,7 @@ export { default as Button } from './Button';
 export { default as Content } from './Content';
 export { default as Description } from './Description';
 export { default as Favorite } from './Favorite';
+export { default as FavoriteButton } from './FavoriteButton';
 export { default as Genrer } from './Genrer';
 export { default as Header } from './Header';
 export { default as HeaderFake } from './HeaderFake';
