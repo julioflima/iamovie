@@ -33,7 +33,9 @@ const Header: React.FC = () => {
         </ContainerLinks>
         <IconsContainer>
           <Search search={search} placeholder="eg: The Shawshank Redemption" />
-          <Favorite size="big" button />
+          <Link href="/favorites" passHref>
+            <Favorite size="big" button />
+          </Link>
           <Button>Sign In</Button>
         </IconsContainer>
       </Container>

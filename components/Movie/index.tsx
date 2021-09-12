@@ -2,10 +2,15 @@ import Image from 'next/image';
 import React from 'react';
 import { BadgeImdb, Description, FavoriteButton, Paragraph, Title } from '..';
 import { IMovieComplete } from '../../interfaces/IMovie';
+import { concatenate, money } from '../../utils/text';
 import { Column, Container, Content, ImageContainer, Row } from './styles';
 
 const Movie: React.FC<{ movie: IMovieComplete }> = ({ movie }) => {
-  const genres = movie?.genres.map((genre) => `${genre.name}, `).join('');
+  const genres = concatenate(movie?.genres.map((genre) => genre?.name));
+  const spokenLanguages = concatenate(movie?.spoken_languages.map((lang) => lang?.english_name));
+  const productionCompanies = concatenate(movie?.production_companies.map((inc) => inc?.name));
+  const originalLanguage = String(movie?.original_language).toLocaleUpperCase();
+  const budgetRevenue = `${money(movie?.budget)} / ${money(movie?.revenue)}`;
 
   return (
     <Container>
@@ -29,21 +34,49 @@ const Movie: React.FC<{ movie: IMovieComplete }> = ({ movie }) => {
           </Row>
         </Column>
 
-        <Column>
-          <Row>
-            <Paragraph label="Sinopse">{movie?.overview}</Paragraph>
-          </Row>
-        </Column>
+        {movie?.overview && (
+          <Column>
+            <Row>
+              <Paragraph label="Sinopse">{movie?.overview}</Paragraph>
+            </Row>
+          </Column>
+        )}
 
-        <Column>
-          <Paragraph label="Summarize">{movie?.tagline}</Paragraph>
-        </Column>
-        <Column>
-          <Paragraph label="Genres">{`${genres?.slice(0, genres.length - 2)}.` ?? ''}</Paragraph>
-        </Column>
-        <Column>
-          <Paragraph label="Original Language">{String(movie?.original_language).toLocaleUpperCase()}</Paragraph>
-        </Column>
+        {movie?.tagline && (
+          <Column>
+            <Paragraph label="Summarize">{movie?.tagline}</Paragraph>
+          </Column>
+        )}
+
+        {genres && (
+          <Column>
+            <Paragraph label="Genres">{genres}</Paragraph>
+          </Column>
+        )}
+
+        {originalLanguage && (
+          <Column>
+            <Paragraph label="Original Language">{originalLanguage}</Paragraph>
+          </Column>
+        )}
+
+        {spokenLanguages && (
+          <Column>
+            <Paragraph label="Spoken Languages">{spokenLanguages}</Paragraph>
+          </Column>
+        )}
+
+        {productionCompanies && (
+          <Column>
+            <Paragraph label="Production Companies">{productionCompanies}</Paragraph>
+          </Column>
+        )}
+
+        {budgetRevenue && (
+          <Column>
+            <Paragraph label="Budget/Revenue">{budgetRevenue}</Paragraph>
+          </Column>
+        )}
       </Content>
 
       <ImageContainer>

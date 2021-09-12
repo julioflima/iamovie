@@ -10,7 +10,7 @@ const Loading: React.FC = () => {
 
   const [loading, setLoading] = useContext(LoadingContext).loadingState;
 
-  const darkness = pathname?.includes('movie') ? '30' : 'b0';
+  const darkness = !(pathname === '/') ? '30' : 'b0';
   const proportion = 1.5;
 
   const handleLoadingStart = (): void => setLoading(true);

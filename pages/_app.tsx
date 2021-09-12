@@ -16,14 +16,14 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         loadingState: [loading, setLoading]
       }}
     >
-      <Theme>
-        <Header />
-        <Loading />
-        <Main>
-          <Component {...pageProps} />
-        </Main>
-        <GlobalStyle />
-      </Theme>
+        <Theme>
+          <Header />
+          <Loading />
+          <Main>
+            <Component {...pageProps} />
+          </Main>
+          <GlobalStyle />
+        </Theme>
     </LoadingContext.Provider>
   );
 };

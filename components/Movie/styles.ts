@@ -7,6 +7,10 @@ export const Container = styled.div`
   margin: 0.5rem;
   margin-right: calc(0.5rem - 5px);
   height: 100%;
+
+  & * {
+    background-repeat: no-repeat;
+  }
 `;
 
 export const ImageContainer = styled.div`

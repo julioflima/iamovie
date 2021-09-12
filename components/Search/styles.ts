@@ -111,6 +111,6 @@ export const Icone = styled(Search)`
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    fill: ${({ theme }) => theme.colors.primary.four};
+    fill: ${({ theme }) => theme.colors.secondary.two};
   }
 `;

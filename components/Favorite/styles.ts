@@ -1,8 +1,8 @@
 /* eslint-disable import/prefer-default-export */
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { IContainer } from './IStyles';
 
-export const Container = styled.div<IContainer>`
+export const Container = styled.a<IContainer>`
   margin: ${({ button }) => (button ? '1rem' : '0rem')};
   cursor: pointer;
   transition: all 0.2s ease-in-out;
@@ -13,12 +13,12 @@ export const Container = styled.div<IContainer>`
 
     fill: ${({ favorite, theme }) => (favorite ? theme.colors.tertiary.two : theme.colors.quaternary.one)};
 
-    &:hover {
-      fill: ${({ favorite, theme }) => (favorite ? theme.colors.secondary.two : theme.colors.primary.four)};
-    }
-
-    &:active {
-      fill: ${({ theme }) => theme.colors.tertiary.two};
-    }
+    ${({ button, theme }) =>
+      button &&
+      css`
+        &:hover {
+          fill: ${theme.colors.secondary.two};
+        }
+      `}
   }
 `;

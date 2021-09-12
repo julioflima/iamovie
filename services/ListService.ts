@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
 
-import { ICheckList } from '../interfaces/IList';
+import { ICheckList, IList } from '../interfaces/IList';
 import TmdbService from './TmdbService';
 
 export default class ListService extends TmdbService {
@@ -60,12 +60,16 @@ export default class ListService extends TmdbService {
     });
   }
 
-  public async get(id: number): Promise<ICheckList> {
+  public async get(id: number): Promise<IList> {
     return this.api.get(`/3/list/${id}`, {
       params: {
         api_key: this.api_key,
         language: this.language
       }
     });
+  }
+
+  public async getFavorite(): Promise<IList> {
+    return this.get(this.list_favorite_id);
   }
 }

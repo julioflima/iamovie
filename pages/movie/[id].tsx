@@ -11,6 +11,13 @@ import { IMovieComplete } from '../../interfaces/IMovie';
 import MoviesService from '../../services/MoviesService';
 
 const movie: React.FC<{ movie: IMovieComplete }> = ({ movie }) => {
+  if (!movie?.title)
+    return (
+      <Head>
+        <title>I.A. Movie</title>
+      </Head>
+    );
+
   return (
     <Container>
       <Head>

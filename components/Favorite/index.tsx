@@ -7,7 +7,7 @@ const Favorite: React.FC<
     favorite?: boolean;
     size?: 'big' | 'bigger' | 'small';
     button?: boolean;
-  } & React.HTMLAttributes<HTMLDivElement>
+  } & React.HTMLAttributes<HTMLAnchorElement>
 > = ({ favorite = false, button = false, size = 'small', ...rest }) => {
   return (
     <Container button={button} favorite={favorite} size={size} {...rest}>

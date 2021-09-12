@@ -16,7 +16,7 @@ export const Container = styled.div`
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.primary.four};
-    border: 0.125rem solid ${({ theme }) => theme.colors.primary.four};
+    color: ${({ theme }) => theme.colors.quaternary.one};
+    border: 0.125rem solid ${({ theme }) => theme.colors.quaternary.one};
   }
 `;
