@@ -25,7 +25,7 @@ const Movie: React.FC<{ movie: IMovieComplete }> = ({ movie }) => {
         <Column>
           <Row>
             <BadgeImdb score={movie?.vote_average} />
-            <FavoriteButton movieId={movie.id} />
+            <FavoriteButton movieId={movie?.id} />
           </Row>
         </Column>
 

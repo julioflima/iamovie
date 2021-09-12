@@ -3,7 +3,6 @@
 import { ICheckList } from '../interfaces/IList';
 import TmdbService from './TmdbService';
 
-// This class I'll not be runned in browser, gonna have an error if was runned.
 export default class ListService extends TmdbService {
   public async createList(name: string, description: string): Promise<unknown> {
     return this.api.post(

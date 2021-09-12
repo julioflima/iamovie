@@ -36,6 +36,19 @@ export interface ISpokenLanguages {
 }
 
 export interface IMovieComplete extends IMovie {
+  adult: boolean;
+  backdrop_path: null | string;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+  id: number;
   belongs_to_collection: null;
   budget: number;
   genres: IGenre[];
