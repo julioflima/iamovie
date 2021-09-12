@@ -8,7 +8,7 @@ declare module 'axios' {
 export default abstract class ApiService {
   protected readonly api: AxiosInstance;
 
-  public constructor(headers: {} = {}, baseURL: string = 'https://api.themoviedb.org') {
+  public constructor(headers: {} = {}, baseURL: string) {
     this.api = axios.create({
       baseURL,
       headers

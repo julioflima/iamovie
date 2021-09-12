@@ -1,3 +1,5 @@
+import { IGenre } from './IGenres';
+
 export interface IMovie {
   adult: boolean;
   backdrop_path: null | string;
@@ -13,11 +15,6 @@ export interface IMovie {
   video: boolean;
   vote_average: number;
   vote_count: number;
-}
-
-export interface IGenres {
-  id: number;
-  name: string;
 }
 
 export interface IProductionCompanies {
@@ -41,7 +38,7 @@ export interface ISpokenLanguages {
 export interface IMovieComplete extends IMovie {
   belongs_to_collection: null;
   budget: number;
-  genres: IGenres[];
+  genres: IGenre[];
   homepage: string;
   imdb_id: string;
   production_companies: IProductionCompanies[];
