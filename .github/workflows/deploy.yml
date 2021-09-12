@@ -3,7 +3,7 @@ name: 'IA Movie on Heroku'
 on:
   push:
     branches:
-      - master
+      - develop
 
 jobs:
   frontend-deploy:
