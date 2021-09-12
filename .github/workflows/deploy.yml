@@ -14,7 +14,7 @@ jobs:
 
       - name: Login to Heroku Container registry frontend.
         env:
-          HEROKU_API_KEY: e69aa951-1b4c-4af5-ba2f-3d26f7044936
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: heroku container:login
 
       - name: Build docker image.
@@ -22,10 +22,10 @@ jobs:
 
       - name: Push container to docker registry Heroku.
         env:
-          HEROKU_API_KEY: e69aa951-1b4c-4af5-ba2f-3d26f7044936
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: heroku container:push -a iamovie web
 
       - name: Release frontend in Heroku.
         env:
-          HEROKU_API_KEY: e69aa951-1b4c-4af5-ba2f-3d26f7044936
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: heroku container:release -a iamovie web
