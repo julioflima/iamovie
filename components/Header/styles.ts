@@ -23,7 +23,7 @@ export const ContainerLinks = styled.div`
   align-items: center;
 `;
 
-export const LogoContainer = styled.div`
+export const LogoContainer = styled.a`
   display: flex;
   flex-direction: column;
   height: 5rem;

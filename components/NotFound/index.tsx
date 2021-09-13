@@ -9,9 +9,7 @@ const NotFound: React.FC<{ query: string }> = ({ query }) => {
 
   return (
     <>
-      <Head>
-        <title>{`I.A. Movie - ${query}`}</title>
-      </Head>
+      <Head>{query ? <title>{`I.A. Movie - ${query}`}</title> : <title>I.A. Movie</title>}</Head>
       <Link href="/" passHref>
         <Container>
           <Image src="/film.svg" alt={query} width={70 * proportion} height={130 * proportion} />

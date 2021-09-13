@@ -43,6 +43,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const movie = await new MoviesService().get(Number(id));
 
+  const oneDayInSeconds = 60 * 60 * 24;
+
   if (!movie)
     return {
       redirect: {
@@ -55,7 +57,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       movie
     },
-    revalidate: 1
+    revalidate: oneDayInSeconds
   };
 };
 

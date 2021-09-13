@@ -1,11 +1,17 @@
 import React from 'react';
 import { Container } from './styles';
 
-const HeaderText: React.FC<{ title: string; items: number; total: number }> = ({ title, items, total }) => {
+const HeaderText: React.FC<{ title: string; items: number; total: number; query?: string }> = ({
+  query,
+  title,
+  items,
+  total
+}) => {
   return (
     <Container>
       <div>
         <h1>{title}</h1>
+        {query && <h2>{query}</h2>}
       </div>
       <div>
         <h4>{items}</h4>

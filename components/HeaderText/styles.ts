@@ -14,32 +14,36 @@ export const Container = styled.div`
     font-weight: 300;
   }
 
-  & div:first-child {
+  & h2 {
+    color: ${({ theme }) => theme.colors.tertiary.two};
+    font-weight: 400;
+    font-style: italic;
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: baseline;
+  }
+
+  & div {
     display: flex;
     flex-direction: row;
+    align-items: baseline;
   }
 
   & div:last-child {
     width: 50vw;
-    display: flex;
-    flex-direction: row;
     justify-content: flex-end;
 
-    & > * {
-      font-weight: 400;
+    & * {
+      font-weight: 500;
       color: ${({ theme }) => theme.colors.quaternary.three};
     }
 
-    & > *:first-child {
+    & *:first-child {
       margin-right: 0.5rem;
     }
 
-    & > *:last-child {
+    & *:last-child {
       margin-left: 0.5rem;
-    }
-
-    & > h5 {
-      padding-top: 2px;
     }
   }
 `;

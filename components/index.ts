@@ -5,7 +5,7 @@ export { default as Content } from './Content';
 export { default as Description } from './Description';
 export { default as Favorite } from './Favorite';
 export { default as FavoriteButton } from './FavoriteButton';
-export { default as Genrer } from './Genrer';
+export { default as Genre } from './Genre';
 export { default as Header } from './Header';
 export { default as HeaderFake } from './HeaderFake';
 export { default as HeaderText } from './HeaderText';
