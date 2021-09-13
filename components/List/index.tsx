@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { Favorite } from '..';
 import { IMovie } from '../../interfaces/IMovie';
+import FavoriteButton from '../FavoriteButton';
 import properties from './properties';
 import { Badge, Card, Container, ContainerCards, ContainerOver, ContentOver, Footer, Header } from './styles';
 
@@ -42,7 +42,7 @@ const List: React.FC<{ movies: IMovie[]; size?: 'big' | 'small' }> = ({ movies, 
                   <Header>
                     <span>{movie?.original_title}</span>
                     <span>
-                      <Favorite />
+                      <FavoriteButton movieId={movie?.id} size="small" />
                     </span>
                   </Header>
                   <Footer>

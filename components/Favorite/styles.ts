@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { IContainer } from './IStyles';
 
 export const Container = styled.a<IContainer>`
-  margin: ${({ button }) => (button ? '1rem' : '0rem')};
+  margin: ${({ button, size }) => (button && size !== 'small' ? '1rem' : '0rem')};
   cursor: pointer;
 
   ${({ favorite }) =>

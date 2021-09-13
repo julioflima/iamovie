@@ -1,11 +1,13 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import React, { memo } from 'react';
-import { HeaderFake, List } from '../../components';
+import { HeaderFake, List, NotFound } from '../../components';
 import { IApi } from '../../interfaces/IApi';
 import MoviesService from '../../services/MoviesService';
 
 const Search: React.FC<{ response: IApi; query: string }> = ({ response, query }) => {
+  if (!response?.results?.length) return <NotFound query={query} />;
+
   return (
     <div>
       <Head>

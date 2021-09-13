@@ -1,10 +1,13 @@
-import React, { useContext } from 'react';
+import React, { MouseEvent, useContext } from 'react';
 import useFetch from 'use-fetching';
 import FavoritesContext from '../../contexts/FavoritesContext';
 import { IMovie } from '../../interfaces/IMovie';
 import Favorite from '../Favorite';
 
-const FavoriteButton: React.FC<{ movieId: number }> = ({ movieId }) => {
+const FavoriteButton: React.FC<{ movieId: number; size?: 'big' | 'bigger' | 'small' }> = ({
+  movieId,
+  size = 'bigger'
+}) => {
   const { favoritesState } = useContext(FavoritesContext);
   const [favorites, setFavorites] = favoritesState;
 
@@ -13,7 +16,9 @@ const FavoriteButton: React.FC<{ movieId: number }> = ({ movieId }) => {
   const { call: toggleMovie } = useFetch();
   const { call: getFavorites } = useFetch({ responseState: favoritesState });
 
-  const handleClick = async (): Promise<void> => {
+  const handleClick = async (e: MouseEvent): Promise<void> => {
+    e.preventDefault();
+
     setFavorites((oldFavorites) => ({
       ...oldFavorites,
       items: favorite
@@ -25,7 +30,7 @@ const FavoriteButton: React.FC<{ movieId: number }> = ({ movieId }) => {
     await getFavorites('/api/list/favorites');
   };
 
-  return <Favorite onClick={handleClick} favorite={favorite} button size="bigger" />;
+  return <Favorite onClick={handleClick} favorite={favorite} button size={size} />;
 };
 
 export default FavoriteButton;

@@ -42,7 +42,7 @@ export const ContainerImage = styled.div`
   padding: 1rem;
 
   & > div {
-    top: -6px;
+    top: 12px;
     right: -4px;
     display: flex;
     flex-direction: row;
