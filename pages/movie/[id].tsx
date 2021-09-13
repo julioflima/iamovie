@@ -10,7 +10,7 @@ import { Container } from '../../components/Content/styles';
 import { IMovieComplete } from '../../interfaces/IMovie';
 import MoviesService from '../../services/MoviesService';
 
-const movie: React.FC<{ movie: IMovieComplete }> = ({ movie }) => {
+const Film: React.FC<{ movie: IMovieComplete }> = ({ movie }) => {
   if (!movie?.title)
     return (
       <Head>
@@ -59,4 +59,4 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-export default memo(movie);
+export default memo(Film);

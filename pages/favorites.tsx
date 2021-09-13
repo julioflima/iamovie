@@ -1,11 +1,15 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import React, { memo } from 'react';
+import React, { memo, useContext } from 'react';
 import { HeaderFake, List } from '../components';
+import FavoritesContext from '../contexts/FavoritesContext';
 import { IList } from '../interfaces/IList';
 import ListService from '../services/ListService';
 
-const Home: React.FC<{ response: IList }> = ({ response }) => {
+const Home: React.FC<{ list: IList }> = ({ list }) => {
+  const [, setFavorites] = useContext(FavoritesContext).favoritesState;
+  setFavorites(list);
+
   return (
     <div>
       <Head>
@@ -13,20 +17,19 @@ const Home: React.FC<{ response: IList }> = ({ response }) => {
       </Head>
       <HeaderFake />
       <h1>Favorites:</h1>
-      <List movies={response?.items} />
+      <List movies={list?.items} />
     </div>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await new ListService().getFavorite();
-  const oneDayInSeconds = 60 * 60 * 24;
+  const list = await new ListService().getFavorites();
 
   return {
     props: {
-      response
+      list
     },
-    revalidate: oneDayInSeconds
+    revalidate: 1
   };
 };
 

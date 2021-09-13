@@ -38,7 +38,7 @@ export default class ListService extends TmdbService {
 
   public async removeMovie(id: number): Promise<unknown> {
     return this.api.post(
-      `/3/list/${this.list_favorite_id}/add_item`,
+      `/3/list/${this.list_favorite_id}/remove_item`,
       {
         media_id: id
       },
@@ -69,7 +69,7 @@ export default class ListService extends TmdbService {
     });
   }
 
-  public async getFavorite(): Promise<IList> {
+  public async getFavorites(): Promise<IList> {
     return this.get(this.list_favorite_id);
   }
 }

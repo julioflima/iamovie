@@ -5,7 +5,19 @@ import { IContainer } from './IStyles';
 export const Container = styled.a<IContainer>`
   margin: ${({ button }) => (button ? '1rem' : '0rem')};
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+
+  ${({ favorite }) =>
+    favorite
+      ? css`
+          & * {
+            transition: all 0.4s ease-in-out;
+          }
+        `
+      : css`
+          & * {
+            transition: all 0.2s ease-in-out;
+          }
+        `}
 
   & svg {
     width: ${({ size }) => (size === 'bigger' ? '1.7rem' : size === 'big' ? '1.2rem' : '1rem')};
