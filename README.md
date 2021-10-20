@@ -100,16 +100,16 @@ You can start editing the page by modifying <strong><i>pages/index.tsx</i></stro
 ### NextJS:
 
 <p align="justify">
-NextJS is the best in now days framework for frontend, it provides the productivity of React with a lot of features that could improve a lot the SEO and by consequence the UX. 
+NextJS is the best nowadays framework for frontend, it provides the productivity of React with a lot of features that could improve a lot the SEO and by consequence the UX.
 </p>
 <p align="justify">
-The most tecnologies that it provides that put Next in the top is the native SSG (Static Site Generation), like the old PHP, so the are much less time of rendering, and if you need rerender something you could do because Next is made in the base oc CRA (Create React App). So we can build dynamic pages, being pre-render in build.
+The most technologies that it provides that put Next at the top is the native SSG (Static Site Generation), inspired by the old PHP, so that are much less time of rendering, and if you need to rerender something you could do because Next is made in the base of CRA (Create React App). So we can build dynamic pages, being pre-rendered in build.
 </p>
 <p align="justify">
- Another technologie that Next provides is the Image and Fonts optimization. 
+Another technology that Next provides is Image and Fonts optimization.
 </p>
 <p align="justify">
-Is good to quote too the ISR (Incremental Static Regeneration), with this you could generate on build some pages, but you could determine when they gonna be revalidated, and even generate pages tha was not generated on build, buy demand.
+Is good to quote too the ISR (Incremental Static Regeneration), with you could generate on build some pages, but you could determine when they gonna be revalidated, and even generate pages that was not generated on the build, buy demand.
 </p>
 
 
